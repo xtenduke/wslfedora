@@ -1,5 +1,8 @@
 Create a fedora WSL2 distro from the official fedora docker image
 
+![Screenshot 2024-04-04 122559](https://github.com/xtenduke/wslfedora/assets/5002212/0a7a6ec6-6511-4b11-a2df-77043eeedc56)
+
+
 
 ### Usage
 
