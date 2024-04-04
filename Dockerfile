@@ -1,7 +1,8 @@
 #The base image
 FROM fedora:39
 
-ARG USER  
+ARG USER
+ARG PASSWORD
 
 #Install required applications
 RUN dnf -y install @core @firefox @fonts @multimedia neovim zsh tmux
