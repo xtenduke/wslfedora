@@ -13,7 +13,7 @@ Create a fedora WSL2 distro from the official fedora docker image
 - Export container as tarfile
 
 ```
-docker build --build-arg USER=user -t fedora-wsl .
+docker build --build-arg USER=user --build-arg PASSWORD=password -t fedora-wsl .
 docker run -t fedora-wsl echo done
 export CONTAINER_ID=$(docker container ls -a | grep -i fedora-wsl | awk '{print $1}') && echo $CONTAINER_ID
 docker export $CONTAINER_ID > /mnt/c/temp/fedora-wsl.tar
