@@ -11,5 +11,5 @@ RUN dnf -y install @core @firefox @fonts @multimedia neovim zsh tmux
 RUN /bin/bash -c 'useradd -m -s /bin/zsh ${USER}; echo "${USER}:${PASSWORD}" | chpasswd; usermod -aG wheel ${USER}'
 
 COPY ./wsl.conf /etc/wsl.conf
-COPY ./x11.conf /etc/tmpfiles.d/
+COPY ./x11.conf /usr/lib/tmpfiles.d/
 RUN /bin/bash -c 'printf "\n[user]\ndefault=${USER}" >> /etc/wsl.conf;'
