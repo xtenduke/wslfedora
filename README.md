@@ -32,5 +32,5 @@ wsl --import Fedora C:\wsl\Fedora C:\temp\fedora-wsl.tar
 
 (Windows) Start the WSL distro
 ```
-fedora
+wsl -d fedora
 ```
