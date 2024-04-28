@@ -1,5 +1,5 @@
 #The base image
-FROM fedora:39
+FROM fedora:40
 
 ARG USER
 ARG PASSWORD
