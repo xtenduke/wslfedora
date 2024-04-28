@@ -4,10 +4,10 @@ Create a fedora WSL2 distro from the official fedora docker image
 
 ### What works
 - GUI apps (wslg)
+- Audio
 
 ### What doesnt / untested
 - Gpu accel / cuda
-- Audio
 
 ### Usage
 
