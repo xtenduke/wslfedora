@@ -23,7 +23,7 @@ jobs:
           docker export $CONTAINER_ID > fedora-wsl.tar
 
       - name: Upload binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: fedora-wsl.tar
           path: fedora-wsl.tar
