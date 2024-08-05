@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo "First setup: "
+
 read -p "Enter username: " user
 
 while true; do
@@ -18,14 +20,17 @@ while true; do
 done
 
 # Write default user to wslconf
-printf "\n[user]\ndefault=${user}" >> /etc/wsl.conf;
+printf "\n[user]\n\ndefault=${user}\n" >> /etc/wsl.conf;
 useradd -m -s /bin/bash ${user}; echo "${user}:${pass}" | chpasswd; usermod -aG wheel ${user}
+
+# change root password
+echo "root:$pass" | sudo chpasswd
 
 # stop exiting on error when breaking
 set +x
+# remove .bashrc entry
+sed -i '/^\/root\/firstboot.sh$/d' /root/.bashrc
 # self delete
 rm -- "$0"
-# remove .bashrc entry
-sed -i '/^echo "/root/firstboot.sh"$/d' /root/.bashrc
 
 exec su - "$user"
