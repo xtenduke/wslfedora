@@ -1,0 +1,32 @@
+name: build
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: |
+          docker build -t fedora-wsl .
+          docker run -t fedora-wsl echo done
+          export CONTAINER_ID=$(docker container ls -a | grep -i fedora-wsl | awk '{print $1}') && echo $CONTAINER_ID
+          docker export $CONTAINER_ID > fedora-wsl.tar
+
+      - name: Github release 
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: |
+            fedora-wsl.tar
