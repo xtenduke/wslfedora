@@ -2,7 +2,7 @@
 FROM fedora:40
 
 #Install applications
-RUN dnf -y install @core @firefox @fonts @multimedia gnome-themes-extra
+RUN dnf -y install @core @firefox @fonts @multimedia gnome-themes-extra git
 
 COPY ./wsl.conf /etc/wsl.conf
 COPY ./x11.conf /usr/lib/tmpfiles.d/
