@@ -21,3 +21,5 @@ wsl --import Fedora C:\wsl\Fedora C:\path\to\fedora-wsl.tar
 ```
 wsl -d Fedora
 ```
+
+Follow first run setup and RESTART the distro manually
