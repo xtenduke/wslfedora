@@ -1,0 +1,11 @@
+[Unit]
+Description=link wslg sockets
+
+[Service]
+Type=oneshot
+ExecStart=-/usr/bin/ln -s /mnt/wslg/.X11-unix /tmp/
+ExecStart=-sh -c "ln -fs /mnt/wslg/runtime-dir/wayland-0 "%t
+ExecStart=-sh -c "ln -fs /mnt/wslg/runtime-dir/wayland-0.lock "%t
+
+[Install]
+WantedBy=default.target

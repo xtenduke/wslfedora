@@ -19,6 +19,9 @@ while true; do
     fi
 done
 
+# Start and enable wslg-mounts
+systemctl --global enable wslg-mounts
+
 # Write default user to wslconf
 printf "\n[user]\n\ndefault=${user}\n" >> /etc/wsl.conf;
 useradd -m -s /bin/bash ${user}; echo "${user}:${pass}" | chpasswd; usermod -aG wheel ${user}
@@ -34,3 +37,8 @@ sed -i '/^\/root\/firstboot.sh$/d' /root/.bashrc
 rm -- "$0"
 
 exec su - "$user"
+
+systemctl --user start wslg-mounts
+
+# https://github.com/microsoft/WSL/issues/8842
+echo "restart the WSL distro to get Graphical features"
