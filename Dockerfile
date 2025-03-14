@@ -1,5 +1,5 @@
 #The base image
-FROM fedora:40
+FROM fedora:41
 
 #Install applications
 RUN dnf -y install @core @firefox @fonts @multimedia gnome-themes-extra git
