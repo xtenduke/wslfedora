@@ -1,3 +1,8 @@
+### Archived notice
+  - Fedora 42 offers official WSL distros. see here https://docs.fedoraproject.org/en-US/cloud/wsl/
+
+
+
 Create a fedora WSL2 distro from the official fedora docker image
 
 ![image](https://github.com/xtenduke/wslfedora/assets/5002212/1abc66a2-6b1b-4f66-88e2-906ae227e99e)
